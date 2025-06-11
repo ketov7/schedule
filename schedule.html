@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список мероприятий форума</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        transition: all 0.5s ease-in-out;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav ul {
+        list-style-type: none;
+        display: flex;
+      }
+      nav li a {
+        text-decoration: none;
+        color: inherit;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+      }
+      nav li a:hover {
+        background-color: #ddd;
+      }
+      nav .theme-toggle button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 1.2em;
+      }
+      header h1 {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      section.events-list {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        padding: 2rem;
+      }
+      article.event-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      article.event-card:hover {
+        transform: scale(1.05);
+      }
+      article.event-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      article.event-card h3 {
+        font-size: 1.5rem;
+        margin: 1rem;
+      }
+      article.event-card p {
+        margin: 1rem;
+      }
+      article.event-card span {
+        font-weight: bold;
+        margin: 1rem;
+      }
+      article.event-card a.button {
+        display: block;
+        text-align: center;
+        margin: 1rem;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+      footer a {
+        color: white;
+        text-decoration: underline;
+      }
+      @media screen and (max-width: 768px) {
+        section.events-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="light-theme">
+    <!-- Верхняя панель навигации -->
+    <nav>
+      <ul>
+        <li>
+          <a href="./index.html"
+            ><img src="./img/logo.png" width="40px" height="20px"
+          /></a>
+        </li>
+        <li><a href="./registration.html">Регистрация</a></li>
+        <li><a href="./auth.html">Авторизация</a></li>
+        <li><a href="/profile">Личный кабинет</a></li>
+        <li><a href="#about-forum">О форуме</a></li>
+        <li><a href="./schedule.html">Мероприятия</a></li>
+      </ul>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <header>
+      <h1>Все мероприятия форума</h1>
+    </header>
+
+    <!-- Перечень карточек мероприятий -->
+    <section class="events-list">
+      <article class="event-card">
+        <img src="./img/e_1.jpg" alt="Мероприятие №1" />
+        <h3>Открытие выставки цифровой живописи</h3>
+        <p>Уникальная выставка цифрового искусства от российских художников.</p>
+        <span>Дата: 15 июля 2025 г., Пермская картинная галерея</span>
+        <span>Записано участников: 150 человек</span>
+        <a href="#" class="button">Зарегистрироваться</a>
+      </article>
+
+      <article class="event-card">
+        <img src="./img/e_2.jpg" alt="Мероприятие №2" />
+        <h3>Научная конференция по ИИ</h3>
+        <p>
+          Двухдневное мероприятие посвящено искусственному интеллекту и
+          технологиям будущего.
+        </p>
+        <span>Дата: 20 июля 2025 г., ПГНИУ</span>
+        <span>Записано участников: 200 человек</span>
+        <a href="#" class="button">Зарегистрироваться</a>
+      </article>
+
+      <article class="event-card">
+        <img src="./img/e_3.jpg" alt="Мероприятие №3" />
+        <h3>Мастер-класс по дизайну интерьеров</h3>
+        <p>
+          Интерактивный мастер-класс по созданию стильных интерьеров от
+          известных дизайнеров.
+        </p>
+        <span>Дата: 25 июля 2025 г., Центр дизайна Перми</span>
+        <span>Записано участников: 100 человек</span>
+        <a href="#" class="button">Зарегистрироваться</a>
+      </article>
+
+      <article class="event-card">
+        <img src="./img/e_4.jpg" alt="Мероприятие №4" />
+        <h3>Открытый турнир по киберспорту</h3>
+        <p>
+          Турнир по популярным компьютерным играм среди любителей и
+          профессионалов.
+        </p>
+        <span>Дата: 30 июля 2025 г., IT-центр Перми</span>
+        <span>Записано участников: 150 человек</span>
+        <a href="#" class="button">Зарегистрироваться</a>
+      </article>
+
+      <article class="event-card">
+        <img src="./img/e_5.jpg" alt="Мероприятие №5" />
+        <h3>Встреча предпринимателей Пермского края</h3>
+        <p>
+          Ежегодная встреча бизнесменов региона для обмена опытом и развития
+          сотрудничества.
+        </p>
+        <span
+          >Дата: 5 августа 2025 г., Конференц-зал Торгово-промышленной
+          палаты</span
+        >
+        <span>Записано участников: 250 человек</span>
+        <a href="#" class="button">Зарегистрироваться</a>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        © Форум | +7 (342) 000-00-00 (<a href="tel:+73420000000">Позвонить</a>)
+        | <a href="mailto:info@forum.pobeda80.perm.ru">Написать нам</a>
+      </p>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/events">Мероприятия</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

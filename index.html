@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форум Победы</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        transition: all 0.5s ease-in-out;
+      }
+      body.dark-theme {
+        background-color: #2d2d2d;
+        color: white;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav ul {
+        list-style-type: none;
+        display: flex;
+      }
+      nav li a {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+      }
+      nav li a:hover {
+        background-color: #ddd;
+      }
+      nav .theme-toggle button {
+        cursor: pointer;
+        font-size: 0.5em;
+      }
+      main {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2rem;
+      }
+      h1,
+      h2,
+      p {
+        line-height: 1.5;
+      }
+      form.auth-form {
+        width: 30%;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button,
+      a.button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+      button:hover,
+      a.button:hover {
+        background-color: #dd5c5c;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+      footer a {
+        color: white;
+        text-decoration: underline;
+      }
+      .slider-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 400px;
+        margin-top: 2rem;
+      }
+      .slide {
+        float: left;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      .active {
+        opacity: 1 !important;
+      }
+      img.slide-image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .slide-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 1rem;
+        border-radius: 4px;
+      }
+      .slide-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .slide-text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      .slide-buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+      .slide-buttons button {
+        margin-right: 10px;
+      }
+      @media screen and (max-width: 768px) {
+        form.auth-form {
+          width: 90%;
+        }
+        .slider-container {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body class="light-theme">
+    <nav>
+      <ul>
+        <li><a href="./index.html"><img src="./img/logo.png" width="40px" height="20px"></a></li>
+        <li><a href="./registration.html">Регистрация</a></li>
+        <li><a href="./auth.html">Авторизация</a></li>
+        <li><a href="/profile">Личный кабинет</a></li>
+        <li><a href="#about-forum">О форуме</a></li>
+        <li><a href="./schedule.html">Мероприятия</a></li>
+      </ul>
+      <div class="theme-toggle">
+        <button id="toggleTheme"><i class="fas fa-moon"></i>Тема<i class="fas fa-sun"></i></button>
+      </div>
+     
+    </nav>
+      <section class="event-section">
+        <h2>Предстоящие мероприятия</h2>
+        <div class="slider-container">
+          <div class="slide">
+            <img src="./img/event_2.jpg" alt="Мероприятие №1" class="slide-image" />
+            <div class="slide-text">
+              <h3>Конференция по цифровизации бизнеса</h3>
+              <p>Описание события...</p>
+              <span><i class="fa fa-map-marker"></i> Пермь, ул. Ленина, д. 1</span>
+              <span><i class="fa fa-calendar"></i> 1 октября 2025 г.</span>
+              <a href="#" class="button">Подробнее</a>
+            </div>
+          </div>
+
+          <div class="slide active">
+            <img src="./img/event_1.jpg" alt="Мероприятие №2" class="slide-image" />
+            <div class="slide-text">
+              <h3>Выставка современного искусства</h3>
+              <p>Описание события...</p>
+              <span><i class="fa fa-map-marker"></i> Москва, Третьяковская галерея</span>
+              <span><i class="fa fa-calendar"></i> 1 ноября 2025 г.</span>
+              <a href="#" class="button">Подробнее</a>
+            </div>
+          </div>
+        </div>  
+      </section>
+    </main>
+    
+    <footer>
+      <p>
+        © Мероприятия | +7 (342) 000-00-00 (<a href="tel:+73420000000"
+          >Позвонить</a
+        >) | <a href="mailto:info@forum.pobeda80.perm.ru">Написать нам</a>
+      </p>
+     <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/events">Мероприятия</a></li>
+        </ul>
+    </footer>
+
+    <script defer> 
+      const toggleButton = document.querySelector('#toggleTheme'); 
+      let isDarkMode = false; 
+      function switchTheme() {
+       if (!isDarkMode) {
+          document.body.classList.add('dark-theme');
+          localStorage.setItem('theme', 'dark');
+        } else {
+           document.body.classList.remove('dark-theme'); localStorage.setItem('theme', 'light');
+        } 
+      
+        isDarkMode = !isDarkMode; 
+      } 
+
+      window.onload = () => {
+          const storedTheme = localStorage.getItem('theme');
+          if (storedTheme === 'dark') {
+             document.body.classList.add('dark-theme'); isDarkMode = true; 
+            }
+      };
+      toggleButton.addEventListener('click', switchTheme);
+     </script>
+  </body>
+</html>
